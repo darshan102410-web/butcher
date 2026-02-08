@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💙</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #fde2e4; /* baby pink */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      transition: transform 0.4s ease;
+    }
+
+    h1 {
+      color: rgb(131, 38, 134);
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 40px;
+    }
+
+
+    .bubble {
+      padding: 20px 50px;
+      font-size: 20px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      background: white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: all 0.4s ease;
+    }
+
+    #yes {
+  background: #188329;
+  color: white;
+  font-size: 22px;
+  box-shadow: 0 0 15px rgba(20, 109, 42, 0.8);
+}
+
+   #no {
+  background: #ff4d4d;
+  color: white;
+  box-shadow: 0 0 15px rgba(255,77,77,0.8);
+}
+
+
+    .gif {
+      margin-top: 30px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Will you be my valentine ?</h1>
+
+  <div class="buttons">
+    <button id="yes" class="bubble">Yes</button>
+    <button id="no" class="bubble">No</button>
+  </div>
+
+  <div class="gif">
+    <img src="bubu.gif" width="200">
+  </div>
+
+  <script>
+    let scale = 1;
+    let yesSize = 1;
+
+
+    const noTexts = [
+      "Are you sure",
+      "Are you positive",
+      "pookie please",
+      "just think about it",
+      "if you say no I will be really sad",
+      "i will be very sad"
+    ];
+
+    let index = 0;
+
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    
+     noBtn.addEventListener("click", () => {
+      scale += 0.12;
+      yesSize += 0.45;
+
+      document.body.style.transform = `scale(${scale})`;
+      yesBtn.style.transform = `scale(${yesSize})`;
+
+      if (index < noTexts.length) {
+        noBtn.innerText = noTexts[index];
+        index++;
+      } else {
+        yesBtn.style.position = "fixed";
+        yesBtn.style.top = "0";
+        yesBtn.style.left = "0";
+        yesBtn.style.width = "100vw";
+        yesBtn.style.height = "100vh";
+        yesBtn.style.borderRadius = "0";
+        yesBtn.style.fontSize = "80px";
+
+      }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "yes.html";
+    });
+  </script>
+
+</body>
+</html>
